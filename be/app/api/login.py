@@ -16,7 +16,6 @@ class LoginRequest(BaseModel):
     username: EmailStr 
     password: str 
 
-
 @router.post('', response_model=DataResponse[Token])
 def login_access_token(form_data: LoginRequest, user_service: UserService = Depends()):
     user = user_service.authenticate(email=form_data.username, password=form_data.password)

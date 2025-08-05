@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Boolean, DateTime
+from sqlalchemy.orm import relationship
 
 from app.models.base import BareBaseModel
 
@@ -9,3 +10,6 @@ class User(BareBaseModel):
     is_active = Column(Boolean, default=True)
     role = Column(String, default='guest')
     last_login = Column(DateTime)
+    
+    # One-to-Many: User -> Projects
+    projects = relationship("Project", back_populates="user", cascade="all, delete-orphan")

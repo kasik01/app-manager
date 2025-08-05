@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api import login, register, healthcheck, user
+from app.api import login, project, register, healthcheck, user
 
 router = APIRouter()
 
@@ -8,3 +8,4 @@ router.include_router(healthcheck.router, tags=["health-check"], prefix="/health
 router.include_router(login.router, tags=["login"], prefix="/login")
 router.include_router(register.router, tags=["register"], prefix="/register")
 router.include_router(user.router, tags=["user"], prefix="/users")
+router.include_router(project.router, tags=["project"], prefix="/projects")

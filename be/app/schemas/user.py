@@ -5,7 +5,6 @@ from pydantic import BaseModel, EmailStr
 
 from app.helpers.enums import UserRole
 
-
 class UserBase(BaseModel):
     full_name: Optional[str] = None
     email: Optional[EmailStr] = None
@@ -17,9 +16,6 @@ class UserBase(BaseModel):
 
 class UserItemResponse(UserBase):
     id: int
-    full_name: str
-    email: EmailStr
-    is_active: bool
     role: str
     last_login: Optional[datetime]
 

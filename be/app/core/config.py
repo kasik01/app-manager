@@ -6,7 +6,7 @@ from typing import List
 class Settings(BaseSettings):
     PROJECT_NAME: str = 'FASTAPI BASE'
     SECRET_KEY: str
-    API_PREFIX: str = ''
+    API_PREFIX: str = '/v1'
     BACKEND_CORS_ORIGINS: List[str] = ['*']
     SQL_DATABASE_URL: str
     ACCESS_TOKEN_EXPIRE_SECONDS: int = 60 * 60 * 24 * 7

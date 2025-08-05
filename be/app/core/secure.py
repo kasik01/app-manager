@@ -1,3 +1,4 @@
+import logging
 import jwt
 
 from typing import Any, Union
@@ -7,6 +8,7 @@ from passlib.context import CryptContext
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+logging.getLogger('passlib').setLevel(logging.ERROR)
 
 def create_access_token(user_id: Union[int, Any]) -> str:
     expire = datetime.utcnow() + timedelta(

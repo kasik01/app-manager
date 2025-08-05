@@ -48,7 +48,6 @@ class Page(BasePage[T], Generic[T]):
             metadata=metadata
         )
 
-
 PageType: ContextVar[Type[BasePage]] = ContextVar("PageType", default=Page)
 
 
