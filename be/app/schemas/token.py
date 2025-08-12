@@ -2,6 +2,8 @@ from typing import Optional
 
 from pydantic import BaseModel
 
+from app.schemas.user import UserItemResponse
+
 
 class Token(BaseModel):
     access_token: str

@@ -49,7 +49,7 @@ def get(user_id: int, params: PaginationParams = Depends(), project_service : Pr
     except Exception as e:
         return HTTPException(status_code=400, detail=logger.error(e))
     
-@router.get("", dependencies=[Depends(login_required)], response_model=Page[ProjectDetailResponse])
+@router.get("", response_model=Page[ProjectDetailResponse])
 def get_all(params: PaginationParams = Depends(), project_service: ProjectService = Depends()) -> Any:
     """
     API Get all Projects
