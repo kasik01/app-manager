@@ -22,7 +22,7 @@ services:
       dockerfile: Dockerfile
     image: fastapi-base:latest
     environment:
-      SQL_DATABASE_URL: ${SQL_DATABASE_URL}
+      SQL_DATABASE_URL: 'postgresql+psycopg2://postgres:postgres@db:5432/postgres'
       SECRET_KEY: ${SECRET_KEY}
     command: [ "alembic", "upgrade", "head" ]
     depends_on:
@@ -35,7 +35,7 @@ services:
     image: fastapi-base:latest
     environment:
       PROJECT_NAME: ${PROJECT_NAME}
-      SQL_DATABASE_URL: ${SQL_DATABASE_URL}
+      SQL_DATABASE_URL: 'postgresql+psycopg2://postgres:postgres@db:5432/postgres'
       SECRET_KEY: ${SECRET_KEY}
     ports:
       - "8000:8000"
